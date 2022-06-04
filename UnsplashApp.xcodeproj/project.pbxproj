@@ -14,6 +14,8 @@
 		2C4B3881284BA64A00428591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B387F284BA64A00428591 /* LaunchScreen.storyboard */; };
 		2C4B3889284BAF0A00428591 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3888284BAF0A00428591 /* TabBarViewController.swift */; };
 		2C4B388B284BAFA200428591 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */; };
+		2C4B3890284BD4B700428591 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B388F284BD4B600428591 /* APICaller.swift */; };
+		2C4B3893284BE9C700428591 /* SearchRequestResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3892284BE9C700428591 /* SearchRequestResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		2C4B3882284BA64A00428591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C4B3888284BAF0A00428591 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		2C4B388F284BD4B600428591 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		2C4B3892284BE9C700428591 /* SearchRequestResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				2C4B388E284BB49300428591 /* Resources */,
 				2C4B388D284BB08700428591 /* Controllers */,
 				2C4B3882284BA64A00428591 /* Info.plist */,
+				2C4B3894284BED9C00428591 /* Managers */,
+				2C4B3891284BD4BE00428591 /* Models */,
 			);
 			path = UnsplashApp;
 			sourceTree = "<group>";
@@ -84,6 +90,22 @@
 				2C4B3876284BA64800428591 /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2C4B3891284BD4BE00428591 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C4B3892284BE9C700428591 /* SearchRequestResults.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C4B3894284BED9C00428591 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2C4B388F284BD4B600428591 /* APICaller.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,10 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4B3879284BA64800428591 /* FavoriteViewController.swift in Sources */,
+				2C4B3890284BD4B700428591 /* APICaller.swift in Sources */,
 				2C4B3875284BA64800428591 /* AppDelegate.swift in Sources */,
 				2C4B3889284BAF0A00428591 /* TabBarViewController.swift in Sources */,
 				2C4B388B284BAFA200428591 /* PhotosCollectionViewController.swift in Sources */,
 				2C4B3877284BA64800428591 /* SceneDelegate.swift in Sources */,
+				2C4B3893284BE9C700428591 /* SearchRequestResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

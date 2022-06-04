@@ -88,8 +88,23 @@ extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDe
         
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let query = searchController.searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty
+        else { return }
+        
+        APICaller.shared.search(with: query) { searchResults in
+            DispatchQueue.main.async {
+                switch searchResults {
+                case .success(let searchResults):
+                    searchResults.results.map { photo in
+                        print("photo.urls: \(photo.urls["small"])")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
