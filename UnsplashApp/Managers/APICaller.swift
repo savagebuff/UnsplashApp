@@ -16,6 +16,8 @@ final class APICaller {
         static let baseAPIURL = "https://api.unsplash.com/"
     }
     
+//    "https://api.unsplash.com/photos/random?orientation=portrait&count=30"
+    
     enum APIError: Error {
         case failedToGetData
     }
@@ -25,12 +27,35 @@ final class APICaller {
         case POST
     }
     
+    // MARK: - random photo
+    public func fetchRandomPhotos(completion: @escaping (Result<[Photo], Error>) -> Void) {
+        createRequest(
+            with: URL(string: Constants.baseAPIURL+"photos/random?orientation=portrait&count=30"),
+            type: .GET) { request in
+                let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                    guard let data = data, error == nil else {
+                        completion(.failure(APIError.failedToGetData))
+                        return
+                    }
+                    
+                    do {
+//                        let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                        let results = try JSONDecoder().decode([Photo].self, from: data)
+                        completion(.success(results))
+                    } catch let error as NSError {
+                        print("try! "+error.localizedDescription)
+                        completion(.failure(error))
+                    }
+                }
+                task.resume()
+            }
+    }
+    
     // MARK: - search
     public func search(with query: String, completion: @escaping (Result<SearchRequestResults, Error>) -> Void) {
         createRequest(
-            with: URL(string: Constants.baseAPIURL+"search/photos?page=1&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&per_page=40"),
+            with: URL(string: Constants.baseAPIURL+"search/photos?page=1&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&per_page=30"),
             type: .GET) { request in
-                print(request.url?.absoluteString ?? "none")
                 let task = URLSession.shared.dataTask(with: request) { data, _, error in
                     guard let data = data, error == nil else {
                         completion(.failure(APIError.failedToGetData))

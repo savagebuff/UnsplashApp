@@ -12,7 +12,7 @@ class PhotosCollectionViewController: UIViewController {
     private var photos = [Photo]()
     
     private let itemsPerRow: CGFloat = 2.0
-    private let sectionInserts = UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18)
+    private let sectionInserts = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     
     let searchController: UISearchController = {
         let vc = UISearchController(searchResultsController: nil)
@@ -36,6 +36,7 @@ class PhotosCollectionViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         setupUI()
+        setupRandomPhotos()
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,6 +46,21 @@ class PhotosCollectionViewController: UIViewController {
 
 extension PhotosCollectionViewController {
     // MARK: - setup UI
+    private func setupRandomPhotos() {
+        guard checkRechability() else { return }
+        APICaller.shared.fetchRandomPhotos { [weak self] results in
+            DispatchQueue.main.async {
+                switch results {
+                case .success(let result):
+                    self?.photos = result
+                    self?.collectionView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
     private func setupUI() {
         collectionView.register(PhotoCell.self , forCellWithReuseIdentifier: PhotoCell.identifier)
         collectionView.dataSource = self
@@ -74,7 +90,8 @@ extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDe
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let query = searchController.searchBar.text,
+        guard checkRechability(),
+              let query = searchController.searchBar.text,
               !query.trimmingCharacters(in: .whitespaces).isEmpty
         else { return }
         
@@ -89,6 +106,17 @@ extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDe
                 }
             }
         }
+    }
+    
+    private func checkRechability() -> Bool {
+        guard Reachability.isConnectedToNetwork() else {
+            let alert = UIAlertController(title: "Ошибка", message: "Нет соединения", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Перезагрузить", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        return true
     }
 }
 
@@ -115,6 +143,10 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

@@ -16,9 +16,16 @@ class TabBarViewController: UITabBarController {
     // MARK: - livecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        view.backgroundColor = .gray
         setup()
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }
 
