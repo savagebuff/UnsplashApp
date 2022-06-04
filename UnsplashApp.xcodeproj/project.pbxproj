@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FA04DC77767D5F104053539 /* Pods_UnsplashApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2206042E384F1E06A94D1CB2 /* Pods_UnsplashApp.framework */; };
 		2C4B3875284BA64800428591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3874284BA64800428591 /* AppDelegate.swift */; };
 		2C4B3877284BA64800428591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3876284BA64800428591 /* SceneDelegate.swift */; };
 		2C4B3879284BA64800428591 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3878284BA64800428591 /* FavoriteViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2206042E384F1E06A94D1CB2 /* Pods_UnsplashApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnsplashApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4B3871284BA64800428591 /* UnsplashApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4B3874284BA64800428591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C4B3876284BA64800428591 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 		2C4B388F284BD4B600428591 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		2C4B3892284BE9C700428591 /* SearchRequestResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestResults.swift; sourceTree = "<group>"; };
 		2C4B3895284BF5EA00428591 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		681D923785A38A0B2EFBB6FB /* Pods-UnsplashApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.release.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.release.xcconfig"; sourceTree = "<group>"; };
+		AC446F200ACAEED9F4B2177A /* Pods-UnsplashApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.debug.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA04DC77767D5F104053539 /* Pods_UnsplashApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1733052618CBCAB78C8540E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2206042E384F1E06A94D1CB2 /* Pods_UnsplashApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C4B3868284BA64800428591 = {
 			isa = PBXGroup;
 			children = (
 				2C4B3873284BA64800428591 /* UnsplashApp */,
 				2C4B3872284BA64800428591 /* Products */,
+				F45D459F215A8B41CAA42B61 /* Pods */,
+				1733052618CBCAB78C8540E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +134,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F45D459F215A8B41CAA42B61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC446F200ACAEED9F4B2177A /* Pods-UnsplashApp.debug.xcconfig */,
+				681D923785A38A0B2EFBB6FB /* Pods-UnsplashApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C4B3885284BA64A00428591 /* Build configuration list for PBXNativeTarget "UnsplashApp" */;
 			buildPhases = (
+				EC36A291BCD9E7880BFF4E7E /* [CP] Check Pods Manifest.lock */,
 				2C4B386D284BA64800428591 /* Sources */,
 				2C4B386E284BA64800428591 /* Frameworks */,
 				2C4B386F284BA64800428591 /* Resources */,
+				FE64C8ADD4F74E99BF6C12DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +210,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC36A291BCD9E7880BFF4E7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnsplashApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE64C8ADD4F74E99BF6C12DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C4B386D284BA64800428591 /* Sources */ = {
@@ -332,6 +401,7 @@
 		};
 		2C4B3886284BA64A00428591 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC446F200ACAEED9F4B2177A /* Pods-UnsplashApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -360,6 +430,7 @@
 		};
 		2C4B3887284BA64A00428591 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 681D923785A38A0B2EFBB6FB /* Pods-UnsplashApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
