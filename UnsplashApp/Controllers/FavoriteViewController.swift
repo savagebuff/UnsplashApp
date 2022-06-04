@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FavoriteViewController.swift
 //  UnsplashApp
 //
 //  Created by Dinar Garaev on 04.06.2022.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
     }
 
 

@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		2C4B3875284BA64800428591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3874284BA64800428591 /* AppDelegate.swift */; };
 		2C4B3877284BA64800428591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3876284BA64800428591 /* SceneDelegate.swift */; };
-		2C4B3879284BA64800428591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3878284BA64800428591 /* ViewController.swift */; };
-		2C4B387C284BA64800428591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B387A284BA64800428591 /* Main.storyboard */; };
+		2C4B3879284BA64800428591 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3878284BA64800428591 /* FavoriteViewController.swift */; };
 		2C4B387E284BA64A00428591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B387D284BA64A00428591 /* Assets.xcassets */; };
 		2C4B3881284BA64A00428591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B387F284BA64A00428591 /* LaunchScreen.storyboard */; };
+		2C4B3889284BAF0A00428591 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3888284BAF0A00428591 /* TabBarViewController.swift */; };
+		2C4B388B284BAFA200428591 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C4B3871284BA64800428591 /* UnsplashApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4B3874284BA64800428591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C4B3876284BA64800428591 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2C4B3878284BA64800428591 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2C4B387B284BA64800428591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C4B3878284BA64800428591 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		2C4B387D284BA64A00428591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C4B3880284BA64A00428591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C4B3882284BA64A00428591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C4B3888284BAF0A00428591 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,32 @@
 		2C4B3873284BA64800428591 /* UnsplashApp */ = {
 			isa = PBXGroup;
 			children = (
-				2C4B3874284BA64800428591 /* AppDelegate.swift */,
-				2C4B3876284BA64800428591 /* SceneDelegate.swift */,
-				2C4B3878284BA64800428591 /* ViewController.swift */,
-				2C4B387A284BA64800428591 /* Main.storyboard */,
-				2C4B387D284BA64A00428591 /* Assets.xcassets */,
-				2C4B387F284BA64A00428591 /* LaunchScreen.storyboard */,
+				2C4B388E284BB49300428591 /* Resources */,
+				2C4B388D284BB08700428591 /* Controllers */,
 				2C4B3882284BA64A00428591 /* Info.plist */,
 			);
 			path = UnsplashApp;
+			sourceTree = "<group>";
+		};
+		2C4B388D284BB08700428591 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C4B3878284BA64800428591 /* FavoriteViewController.swift */,
+				2C4B3888284BAF0A00428591 /* TabBarViewController.swift */,
+				2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2C4B388E284BB49300428591 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C4B387D284BA64A00428591 /* Assets.xcassets */,
+				2C4B387F284BA64A00428591 /* LaunchScreen.storyboard */,
+				2C4B3874284BA64800428591 /* AppDelegate.swift */,
+				2C4B3876284BA64800428591 /* SceneDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +146,6 @@
 			files = (
 				2C4B3881284BA64A00428591 /* LaunchScreen.storyboard in Resources */,
 				2C4B387E284BA64A00428591 /* Assets.xcassets in Resources */,
-				2C4B387C284BA64800428591 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C4B3879284BA64800428591 /* ViewController.swift in Sources */,
+				2C4B3879284BA64800428591 /* FavoriteViewController.swift in Sources */,
 				2C4B3875284BA64800428591 /* AppDelegate.swift in Sources */,
+				2C4B3889284BAF0A00428591 /* TabBarViewController.swift in Sources */,
+				2C4B388B284BAFA200428591 /* PhotosCollectionViewController.swift in Sources */,
 				2C4B3877284BA64800428591 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +167,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2C4B387A284BA64800428591 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C4B387B284BA64800428591 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2C4B387F284BA64A00428591 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,9 +306,9 @@
 				INFOPLIST_FILE = UnsplashApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,9 +334,9 @@
 				INFOPLIST_FILE = UnsplashApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
