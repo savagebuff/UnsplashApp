@@ -10,6 +10,7 @@ import UIKit
 class PhotosCollectionViewController: UIViewController {
     // MARK: - properties
     private let cellIdentifier = "cellId"
+    private var photos = [Photo]()
     
     let searchController: UISearchController = {
         let vc = UISearchController(searchResultsController: nil)
@@ -93,13 +94,11 @@ extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDe
               !query.trimmingCharacters(in: .whitespaces).isEmpty
         else { return }
         
-        APICaller.shared.search(with: query) { searchResults in
+        APICaller.shared.search(with: query) { [weak self] searchResults in
             DispatchQueue.main.async {
                 switch searchResults {
                 case .success(let searchResults):
-                    searchResults.results.map { photo in
-                        print("photo.urls: \(photo.urls["small"])")
-                    }
+                    self?.photos = searchResults.results
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -115,11 +114,13 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        let unsplashPhoto = photos[indexPath.item]
+        cell
         cell.backgroundColor = .black
         return cell
     }
