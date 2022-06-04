@@ -8,12 +8,10 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
+    
     // MARK: - properties
-    
-    private let photosVC = PhotosCollectionViewController(collectionViewLayout: UICollectionViewLayout())
+    private let photosVC = PhotosCollectionViewController()
     private let favoriteVC = FavoriteViewController()
-    
-    
     
     // MARK: - livecycle
     override func viewDidLoad() {
@@ -25,6 +23,8 @@ class TabBarViewController: UITabBarController {
 }
 
 extension TabBarViewController {
+    
+    // MARK: - add navigationVC's on 
     private func setup() {
         guard let photosImage = UIImage(systemName: "photo.on.rectangle.angled"),
               let heartImage = UIImage(systemName: "heart.fill")
