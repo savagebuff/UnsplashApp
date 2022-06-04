@@ -9,12 +9,14 @@ import UIKit
 
 class PhotosCollectionViewController: UIViewController {
     // MARK: - properties
-    private let cellIdentifier = "cellId"
     private var photos = [Photo]()
+    
+    private let itemsPerRow: CGFloat = 2.0
+    private let sectionInserts = UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18)
     
     let searchController: UISearchController = {
         let vc = UISearchController(searchResultsController: nil)
-        vc.searchBar.placeholder = "Название фото"
+        vc.searchBar.placeholder = "Поиск"
         vc.searchBar.searchBarStyle = .minimal
         vc.definesPresentationContext = true
         return vc
@@ -28,19 +30,12 @@ class PhotosCollectionViewController: UIViewController {
         return collectionView
     }()
     
-    private lazy var addBarButtonItem: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
-        return barButton
-    }()
-    
     // MARK: - livecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        setupCollectinView()
-        setupNavigationBar()
-        setupSearchBar()
+        setupUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,38 +44,27 @@ class PhotosCollectionViewController: UIViewController {
 }
 
 extension PhotosCollectionViewController {
-    // MARK: - navItems action
-    @objc
-    private func addBarButtonTapped() {
-        print(#function)
-    }
-    
     // MARK: - setup UI
-    private func setupCollectinView() {
-        collectionView.register(UICollectionViewCell.self , forCellWithReuseIdentifier: cellIdentifier)
-        
+    private func setupUI() {
+        collectionView.register(PhotoCell.self , forCellWithReuseIdentifier: PhotoCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
-        view.addSubview(collectionView)
+        collectionView.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        collectionView.contentInsetAdjustmentBehavior = .automatic
         
+        view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
-    }
-    
-    private func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = addBarButtonItem
-    }
-    
-    private func setupSearchBar() {
+        
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-        
         navigationItem.searchController = searchController
     }
+    
 }
 
 // MARK: - UISearchBarDelegate
@@ -99,6 +83,7 @@ extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDe
                 switch searchResults {
                 case .success(let searchResults):
                     self?.photos = searchResults.results
+                    self?.collectionView.reloadData()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -118,11 +103,37 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PhotoCell.identifier,
+            for: indexPath
+        ) as? PhotoCell else {
+            return UICollectionViewCell()
+        }
+        
         let unsplashPhoto = photos[indexPath.item]
-        cell
-        cell.backgroundColor = .black
+        cell.unsplashPhoto = unsplashPhoto
         return cell
+    }
+    
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let photo = photos[indexPath.item]
+        let paddingSpace = sectionInserts.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        let height = CGFloat(photo.height) * widthPerItem / CGFloat(photo.width)
+        return CGSize(width: widthPerItem, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInserts
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInserts.left
     }
 }
 

@@ -28,7 +28,7 @@ final class APICaller {
     // MARK: - search
     public func search(with query: String, completion: @escaping (Result<SearchRequestResults, Error>) -> Void) {
         createRequest(
-            with: URL(string: Constants.baseAPIURL+"search/photos?page=1&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&per_page=30"),
+            with: URL(string: Constants.baseAPIURL+"search/photos?page=1&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&per_page=40"),
             type: .GET) { request in
                 print(request.url?.absoluteString ?? "none")
                 let task = URLSession.shared.dataTask(with: request) { data, _, error in
