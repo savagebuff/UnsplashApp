@@ -86,6 +86,17 @@ extension PhotosCollectionViewController {
         navigationItem.searchController = searchController
     }
     
+    // MARK: - check rechability network
+    private func checkRechability() -> Bool {
+        guard Reachability.isConnectedToNetwork() else {
+            let alert = UIAlertController(title: "Ошибка", message: "Нет соединения", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Перезагрузить", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -111,17 +122,6 @@ extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDe
                 }
             }
         }
-    }
-    
-    private func checkRechability() -> Bool {
-        guard Reachability.isConnectedToNetwork() else {
-            let alert = UIAlertController(title: "Ошибка", message: "Нет соединения", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Перезагрузить", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-            return false
-        }
-        return true
     }
 }
 
@@ -151,7 +151,7 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        let vc = DetailViewController(selectPhoto: photos[indexPath.item])
+        let vc = DetailViewController(selectedPhoto: photos[indexPath.item])
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }

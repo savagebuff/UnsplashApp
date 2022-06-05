@@ -11,7 +11,7 @@ class DetailViewController: UIViewController {
     // MARK: - properties
     static let identifier = "detailCell"
    
-    private let selectPhoto: Photo
+    private let selectedPhoto: Photo
     private var models = [String]()
     
     private let tableView: UITableView = {
@@ -23,14 +23,18 @@ class DetailViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var addBarButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+    private lazy var twoFacedBarButtonItem: UIBarButtonItem = {
+        let button = UIBarButtonItem(
+            image: SavedPhotos.shared.savedPhoto.contains(selectedPhoto) ? UIImage(systemName: "trash") : UIImage(systemName: "plus"),
+            style: .plain, target: self,
+            action: #selector(twoFacedbuttonTapped)
+        )
         return button
     }()
     
     // MARK: - init
-    init(selectPhoto: Photo) {
-        self.selectPhoto = selectPhoto
+    init(selectedPhoto: Photo) {
+        self.selectedPhoto = selectedPhoto
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,22 +47,38 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateButtonState()
+    }
 }
 
 extension DetailViewController {
     // MARK: - add button action
     @objc
-    private func addButtonTapped() {
-        print(#function)
-        let photo = selectPhoto
-        
+    private func twoFacedbuttonTapped() {
         guard let tabBar = self.tabBarController as? TabBarViewController,
               let navVC = tabBar.viewControllers?.last as? UINavigationController,
-              let favoritesVC = navVC.topViewController as? FavoritesViewController
+              let favoritesVC = navVC.viewControllers.first(where: { $0.title == "Любимые" }) as? FavoritesViewController
         else { return }
-        
-        favoritesVC.photos.append(photo)
-        favoritesVC.collectionView.reloadData()
+
+        if SavedPhotos.shared.savedPhoto.contains(selectedPhoto) {
+            SavedPhotos.shared.savedPhoto.remove(selectedPhoto)
+            favoritesVC.collectionView.reloadData()
+        } else {
+            SavedPhotos.shared.savedPhoto.insert(selectedPhoto)
+            favoritesVC.collectionView.reloadData()
+        }
+        updateButtonState()
+    }
+    
+    private func updateButtonState() {
+        if SavedPhotos.shared.savedPhoto.contains(selectedPhoto) {
+            twoFacedBarButtonItem.image = UIImage(systemName: "trash")
+        } else {
+            twoFacedBarButtonItem.image = UIImage(systemName: "plus")
+        }
     }
     
     // MARK: - setup and update UI
@@ -73,7 +93,7 @@ extension DetailViewController {
             tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
-        navigationItem.rightBarButtonItem = addBarButtonItem
+        navigationItem.rightBarButtonItem = twoFacedBarButtonItem
         updateUI()
         view.backgroundColor = .systemBackground
     }
@@ -83,18 +103,18 @@ extension DetailViewController {
         var location = "нет информации"
         var downloads = "нет инфомации"
         
-        if let down = selectPhoto.downloads {
+        if let down = selectedPhoto.downloads {
             downloads = "\(down)"
         }
-        if let locName = selectPhoto.location?.name {
+        if let locName = selectedPhoto.location?.name {
             location = locName
         }
         
-        models.append("Автор: \(selectPhoto.user.name)")
-        models.append("Дата создания: \(selectPhoto.created_at.toDateString(inputDateFormat: "yyyy-MM-dd'T'HH:mm:ssZ", ouputDateFormat: "MM-dd-yyyy HH:mm"))")
+        models.append("Автор: \(selectedPhoto.user.name)")
+        models.append("Дата создания: \(selectedPhoto.created_at.toDateString(inputDateFormat: "yyyy-MM-dd'T'HH:mm:ssZ", ouputDateFormat: "MM-dd-yyyy HH:mm"))")
         models.append("Местоположение: \(location)")
         models.append("Кол-во скачиваний: \(downloads)")
-        createTableHeader(with: selectPhoto.urls["regular"])
+        createTableHeader(with: selectedPhoto.urls["regular"])
         tableView.reloadData()
     }
     

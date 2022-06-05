@@ -25,6 +25,7 @@
 		2C4B38A3284C14C300428591 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A2284C14C300428591 /* User.swift */; };
 		2C4B38A7284C288500428591 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A6284C288500428591 /* Extensions.swift */; };
 		2C4B38A9284C3CA600428591 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A8284C3CA600428591 /* FavoritesCell.swift */; };
+		2C4B38D3284C704300428591 /* SavedPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38D2284C704300428591 /* SavedPhotos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		2C4B38A2284C14C300428591 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2C4B38A6284C288500428591 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2C4B38A8284C3CA600428591 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		2C4B38D2284C704300428591 /* SavedPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPhotos.swift; sourceTree = "<group>"; };
 		681D923785A38A0B2EFBB6FB /* Pods-UnsplashApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.release.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.release.xcconfig"; sourceTree = "<group>"; };
 		AC446F200ACAEED9F4B2177A /* Pods-UnsplashApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.debug.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 				2C4B389E284C145000428591 /* Photo.swift */,
 				2C4B38A2284C14C300428591 /* User.swift */,
 				2C4B38A0284C14AE00428591 /* Location.swift */,
+				2C4B38D2284C704300428591 /* SavedPhotos.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				2C4B388B284BAFA200428591 /* PhotosCollectionViewController.swift in Sources */,
 				2C4B3899284C087800428591 /* Rechability.swift in Sources */,
 				2C4B389B284C0B5000428591 /* DetailViewController.swift in Sources */,
+				2C4B38D3284C704300428591 /* SavedPhotos.swift in Sources */,
 				2C4B3877284BA64800428591 /* SceneDelegate.swift in Sources */,
 				2C4B3893284BE9C700428591 /* SearchResponse.swift in Sources */,
 				2C4B38A7284C288500428591 /* Extensions.swift in Sources */,

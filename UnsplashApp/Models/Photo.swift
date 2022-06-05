@@ -8,7 +8,6 @@
 import Foundation
 
 struct Photo: Codable {
-    
     let created_at: String
     let downloads: Int?
     let width: Int
@@ -24,5 +23,17 @@ struct Photo: Codable {
         case small
         case thumb
         case small_s3
+    }
+}
+
+extension Photo: Hashable {
+    static func == (lhs: Photo, rhs: Photo) -> Bool {
+        return lhs.user.name == rhs.user.name && lhs.created_at == rhs.created_at
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(created_at)
+        hasher.combine(user.name)
+        hasher.combine(urls["regular"])
     }
 }

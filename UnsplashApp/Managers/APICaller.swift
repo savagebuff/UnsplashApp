@@ -16,8 +16,6 @@ final class APICaller {
         static let baseAPIURL = "https://api.unsplash.com/"
     }
     
-//    "https://api.unsplash.com/photos/random?orientation=portrait&count=30"
-    
     enum APIError: Error {
         case failedToGetData
     }
@@ -39,7 +37,6 @@ final class APICaller {
                     }
                     
                     do {
-//                        let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
                         let results = try JSONDecoder().decode([Photo].self, from: data)
                         completion(.success(results))
                     } catch let error as NSError {

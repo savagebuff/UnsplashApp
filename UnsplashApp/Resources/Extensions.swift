@@ -46,6 +46,7 @@ extension String {
     }
 }
 
+// MARK: - Array
 extension Array {
     func filterDuplicates(includeElement: (_ lhs:Element, _ rhs:Element) -> Bool) -> [Element]{
         var results = [Element]()

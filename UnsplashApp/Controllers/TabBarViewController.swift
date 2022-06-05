@@ -31,7 +31,7 @@ class TabBarViewController: UITabBarController {
 
 extension TabBarViewController {
     
-    // MARK: - add navigationVC's on 
+    // MARK: - add navigationVC's
     private func setup() {
         guard let photosImage = UIImage(systemName: "photo.on.rectangle.angled"),
               let heartImage = UIImage(systemName: "heart.fill")

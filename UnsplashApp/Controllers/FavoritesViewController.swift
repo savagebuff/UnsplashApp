@@ -9,13 +9,6 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     // MARK: - porperties
-    var photos = [Photo]()
-    
-    private lazy var trashBarButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(trashBarButtonTapped))
-        return button
-    }()
-    
     let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         viewLayout.minimumLineSpacing = 1
@@ -50,12 +43,6 @@ class FavoritesViewController: UIViewController {
 }
 
 extension FavoritesViewController {
-    // MARK: - trash button action
-    @objc
-    private func trashBarButtonTapped() {
-        print(#function)
-    }
-    
     // MARK: - setup UI
     private func setupUI() {
         collectionView.register(FavoritesCell.self , forCellWithReuseIdentifier: FavoritesCell.identifier)
@@ -76,8 +63,6 @@ extension FavoritesViewController {
             termLabel.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
             termLabel.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor)
         ])
-        
-        navigationItem.rightBarButtonItem = trashBarButtonItem
     }
     
 }
@@ -85,10 +70,8 @@ extension FavoritesViewController {
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sorted = photos.filterDuplicates { $0.user.name == $1.user.name && $0.created_at == $1.created_at }
-        photos = sorted
-        termLabel.isHidden = photos.count != 0
-        return photos.count
+        termLabel.isHidden = SavedPhotos.shared.savedPhoto.count != 0
+        return SavedPhotos.shared.savedPhoto.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -99,11 +82,20 @@ extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewD
             return UICollectionViewCell()
         }
         
-        let unsplashPhoto = photos[indexPath.item]
+        let photoArray = Array(SavedPhotos.shared.savedPhoto)
+        let unsplashPhoto = photoArray[indexPath.item]
         cell.unsplashPhoto = unsplashPhoto
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let photoArray = Array(SavedPhotos.shared.savedPhoto)
+        let vc = DetailViewController(selectedPhoto: photoArray[indexPath.item])
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
