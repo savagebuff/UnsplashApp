@@ -86,7 +86,7 @@ extension PhotosCollectionViewController {
 // MARK: - UISearchBarDelegate
 extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        return
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -146,6 +146,9 @@ extension PhotosCollectionViewController: UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
+        let vc = DetailViewController(selectPhoto: photos[indexPath.item])
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

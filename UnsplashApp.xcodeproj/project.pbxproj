@@ -16,13 +16,14 @@
 		2C4B3889284BAF0A00428591 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3888284BAF0A00428591 /* TabBarViewController.swift */; };
 		2C4B388B284BAFA200428591 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */; };
 		2C4B3890284BD4B700428591 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B388F284BD4B600428591 /* APICaller.swift */; };
-		2C4B3893284BE9C700428591 /* SearchRequestResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3892284BE9C700428591 /* SearchRequestResults.swift */; };
+		2C4B3893284BE9C700428591 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3892284BE9C700428591 /* SearchResponse.swift */; };
 		2C4B3896284BF5EA00428591 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3895284BF5EA00428591 /* PhotoCell.swift */; };
 		2C4B3899284C087800428591 /* Rechability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3898284C087800428591 /* Rechability.swift */; };
 		2C4B389B284C0B5000428591 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B389A284C0B5000428591 /* DetailViewController.swift */; };
 		2C4B389F284C145000428591 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B389E284C145000428591 /* Photo.swift */; };
 		2C4B38A1284C14AE00428591 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A0284C14AE00428591 /* Location.swift */; };
 		2C4B38A3284C14C300428591 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A2284C14C300428591 /* User.swift */; };
+		2C4B38A7284C288500428591 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A6284C288500428591 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,13 +38,14 @@
 		2C4B3888284BAF0A00428591 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		2C4B388F284BD4B600428591 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
-		2C4B3892284BE9C700428591 /* SearchRequestResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestResults.swift; sourceTree = "<group>"; };
+		2C4B3892284BE9C700428591 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		2C4B3895284BF5EA00428591 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		2C4B3898284C087800428591 /* Rechability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rechability.swift; sourceTree = "<group>"; };
 		2C4B389A284C0B5000428591 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2C4B389E284C145000428591 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		2C4B38A0284C14AE00428591 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2C4B38A2284C14C300428591 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2C4B38A6284C288500428591 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		681D923785A38A0B2EFBB6FB /* Pods-UnsplashApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.release.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.release.xcconfig"; sourceTree = "<group>"; };
 		AC446F200ACAEED9F4B2177A /* Pods-UnsplashApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.debug.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				2C4B387F284BA64A00428591 /* LaunchScreen.storyboard */,
 				2C4B3874284BA64800428591 /* AppDelegate.swift */,
 				2C4B3876284BA64800428591 /* SceneDelegate.swift */,
+				2C4B38A6284C288500428591 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -125,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4B3898284C087800428591 /* Rechability.swift */,
-				2C4B3892284BE9C700428591 /* SearchRequestResults.swift */,
+				2C4B3892284BE9C700428591 /* SearchResponse.swift */,
 				2C4B389E284C145000428591 /* Photo.swift */,
 				2C4B38A2284C14C300428591 /* User.swift */,
 				2C4B38A0284C14AE00428591 /* Location.swift */,
@@ -284,7 +287,8 @@
 				2C4B3899284C087800428591 /* Rechability.swift in Sources */,
 				2C4B389B284C0B5000428591 /* DetailViewController.swift in Sources */,
 				2C4B3877284BA64800428591 /* SceneDelegate.swift in Sources */,
-				2C4B3893284BE9C700428591 /* SearchRequestResults.swift in Sources */,
+				2C4B3893284BE9C700428591 /* SearchResponse.swift in Sources */,
+				2C4B38A7284C288500428591 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

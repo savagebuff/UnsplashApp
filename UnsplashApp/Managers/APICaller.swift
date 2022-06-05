@@ -52,7 +52,7 @@ final class APICaller {
     }
     
     // MARK: - search
-    public func search(with query: String, completion: @escaping (Result<SearchRequestResults, Error>) -> Void) {
+    public func search(with query: String, completion: @escaping (Result<SearchResponse, Error>) -> Void) {
         createRequest(
             with: URL(string: Constants.baseAPIURL+"search/photos?page=1&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&per_page=30"),
             type: .GET) { request in
@@ -63,7 +63,7 @@ final class APICaller {
                     }
                     
                     do {
-                        let results = try JSONDecoder().decode(SearchRequestResults.self, from: data)
+                        let results = try JSONDecoder().decode(SearchResponse.self, from: data)
                         completion(.success(results))
                         
                     } catch let error as NSError {
