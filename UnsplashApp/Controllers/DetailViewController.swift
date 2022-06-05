@@ -101,7 +101,7 @@ extension DetailViewController {
     private func updateUI() {
         tableView.isHidden = false
         var location = "нет информации"
-        var downloads = "нет инфомации"
+        var downloads = "нет информации"
         
         if let down = selectedPhoto.downloads {
             downloads = "\(down)"

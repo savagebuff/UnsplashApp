@@ -33,6 +33,8 @@ extension TabBarViewController {
     
     // MARK: - add navigationVC's
     private func setup() {
+        tabBar.tintColor = .label
+        
         guard let photosImage = UIImage(systemName: "photo.on.rectangle.angled"),
               let heartImage = UIImage(systemName: "heart.fill")
         else { return }
