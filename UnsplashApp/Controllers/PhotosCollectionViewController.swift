@@ -45,6 +45,11 @@ class PhotosCollectionViewController: UIViewController {
 }
 
 extension PhotosCollectionViewController {
+    // MARK: - buttons action
+    @objc
+    private func addBarButtonTapped() {
+        print(#function)
+    }
     // MARK: - setup UI
     private func setupRandomPhotos() {
         guard checkRechability() else { return }
@@ -120,7 +125,7 @@ extension PhotosCollectionViewController: UISearchResultsUpdating, UISearchBarDe
     }
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDataDelegate
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension PhotosCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

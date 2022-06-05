@@ -10,7 +10,7 @@
 		0FA04DC77767D5F104053539 /* Pods_UnsplashApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2206042E384F1E06A94D1CB2 /* Pods_UnsplashApp.framework */; };
 		2C4B3875284BA64800428591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3874284BA64800428591 /* AppDelegate.swift */; };
 		2C4B3877284BA64800428591 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3876284BA64800428591 /* SceneDelegate.swift */; };
-		2C4B3879284BA64800428591 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3878284BA64800428591 /* FavoriteViewController.swift */; };
+		2C4B3879284BA64800428591 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3878284BA64800428591 /* FavoritesViewController.swift */; };
 		2C4B387E284BA64A00428591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B387D284BA64A00428591 /* Assets.xcassets */; };
 		2C4B3881284BA64A00428591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B387F284BA64A00428591 /* LaunchScreen.storyboard */; };
 		2C4B3889284BAF0A00428591 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B3888284BAF0A00428591 /* TabBarViewController.swift */; };
@@ -24,6 +24,7 @@
 		2C4B38A1284C14AE00428591 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A0284C14AE00428591 /* Location.swift */; };
 		2C4B38A3284C14C300428591 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A2284C14C300428591 /* User.swift */; };
 		2C4B38A7284C288500428591 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A6284C288500428591 /* Extensions.swift */; };
+		2C4B38A9284C3CA600428591 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B38A8284C3CA600428591 /* FavoritesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,7 @@
 		2C4B3871284BA64800428591 /* UnsplashApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4B3874284BA64800428591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C4B3876284BA64800428591 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2C4B3878284BA64800428591 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		2C4B3878284BA64800428591 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2C4B387D284BA64A00428591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C4B3880284BA64A00428591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C4B3882284BA64A00428591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		2C4B38A0284C14AE00428591 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2C4B38A2284C14C300428591 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2C4B38A6284C288500428591 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2C4B38A8284C3CA600428591 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		681D923785A38A0B2EFBB6FB /* Pods-UnsplashApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.release.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.release.xcconfig"; sourceTree = "<group>"; };
 		AC446F200ACAEED9F4B2177A /* Pods-UnsplashApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashApp.debug.xcconfig"; path = "Target Support Files/Pods-UnsplashApp/Pods-UnsplashApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,8 +106,8 @@
 		2C4B388D284BB08700428591 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2C4B3878284BA64800428591 /* FavoriteViewController.swift */,
 				2C4B3888284BAF0A00428591 /* TabBarViewController.swift */,
+				2C4B3878284BA64800428591 /* FavoritesViewController.swift */,
 				2C4B388A284BAFA200428591 /* PhotosCollectionViewController.swift */,
 				2C4B389A284C0B5000428591 /* DetailViewController.swift */,
 			);
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4B3895284BF5EA00428591 /* PhotoCell.swift */,
+				2C4B38A8284C3CA600428591 /* FavoritesCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,13 +279,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4B389F284C145000428591 /* Photo.swift in Sources */,
-				2C4B3879284BA64800428591 /* FavoriteViewController.swift in Sources */,
+				2C4B3879284BA64800428591 /* FavoritesViewController.swift in Sources */,
 				2C4B3890284BD4B700428591 /* APICaller.swift in Sources */,
 				2C4B3875284BA64800428591 /* AppDelegate.swift in Sources */,
 				2C4B3889284BAF0A00428591 /* TabBarViewController.swift in Sources */,
 				2C4B38A3284C14C300428591 /* User.swift in Sources */,
 				2C4B38A1284C14AE00428591 /* Location.swift in Sources */,
 				2C4B3896284BF5EA00428591 /* PhotoCell.swift in Sources */,
+				2C4B38A9284C3CA600428591 /* FavoritesCollectionViewCell.swift in Sources */,
 				2C4B388B284BAFA200428591 /* PhotosCollectionViewController.swift in Sources */,
 				2C4B3899284C087800428591 /* Rechability.swift in Sources */,
 				2C4B389B284C0B5000428591 /* DetailViewController.swift in Sources */,

@@ -37,19 +37,18 @@ class PhotoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension PhotoCell {
     // MARK: - reuse cell
     override func prepareForReuse() {
         super.prepareForReuse()
         photoImageView.image = nil
     }
-}
-
-extension PhotoCell {
+    
     // MARK: - setup
     private func setupPhoto() {
         addSubview(photoImageView)
-        
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: self.topAnchor),
             photoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),

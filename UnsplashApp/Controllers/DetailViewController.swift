@@ -23,6 +23,11 @@ class DetailViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var addBarButtonItem: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        return button
+    }()
+    
     // MARK: - init
     init(selectPhoto: Photo) {
         self.selectPhoto = selectPhoto
@@ -41,6 +46,13 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController {
+    // MARK: - add button action
+    @objc
+    private func addButtonTapped() {
+        print(#function)
+        
+    }
+    
     // MARK: - setup and update UI
     private func setupUI() {
         title = "Обзор"
@@ -53,6 +65,7 @@ extension DetailViewController {
             tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
+        navigationItem.rightBarButtonItem = addBarButtonItem
         updateUI()
         view.backgroundColor = .systemBackground
     }

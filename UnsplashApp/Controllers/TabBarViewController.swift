@@ -11,7 +11,7 @@ class TabBarViewController: UITabBarController {
     
     // MARK: - properties
     private let photosVC = PhotosCollectionViewController()
-    private let favoriteVC = FavoriteViewController()
+    private let favoriteVC = FavoritesViewController()
     
     // MARK: - livecycle
     override func viewDidLoad() {
