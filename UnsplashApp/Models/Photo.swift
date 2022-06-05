@@ -8,6 +8,7 @@
 import Foundation
 
 struct Photo: Codable {
+    
     let created_at: String
     let downloads: Int?
     let width: Int

@@ -50,7 +50,15 @@ extension DetailViewController {
     @objc
     private func addButtonTapped() {
         print(#function)
+        let photo = selectPhoto
         
+        guard let tabBar = self.tabBarController as? TabBarViewController,
+              let navVC = tabBar.viewControllers?.last as? UINavigationController,
+              let favoritesVC = navVC.topViewController as? FavoritesViewController
+        else { return }
+        
+        favoritesVC.photos.append(photo)
+        favoritesVC.collectionView.reloadData()
     }
     
     // MARK: - setup and update UI
